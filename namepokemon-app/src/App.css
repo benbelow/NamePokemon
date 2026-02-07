@@ -1,42 +1,187 @@
-#root {
-  max-width: 1280px;
+.app {
+  max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
+  min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #ffcb05;
+  text-shadow: 2px 2px 0 #3466af;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Timer */
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.timer {
+  font-size: 3rem;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  transition: color 0.3s;
 }
 
-.card {
-  padding: 2em;
+.timer-danger {
+  color: #ef4444;
+  animation: pulse 1s infinite;
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.bonus {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #22c55e;
+  animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+/* Score */
+.score {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #aaa;
+}
+
+.score-value {
+  font-weight: bold;
+  color: #ffcb05;
+  font-size: 1.4rem;
+}
+
+.score-total {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Input area */
+.input-area {
+  margin-bottom: 1.5rem;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.message {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-error {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.pokemon-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.2rem;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pokemon-input:focus {
+  border-color: #ffcb05;
+}
+
+.pokemon-input::placeholder {
+  color: #666;
+}
+
+/* Game Over */
+.game-over {
+  margin: 2rem 0;
+}
+
+.game-over h2 {
+  font-size: 2rem;
+  color: #ef4444;
+  margin-bottom: 0.5rem;
+}
+
+.game-over p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.restart-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background: #ffcb05;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.restart-btn:hover {
+  background: #e6b800;
+}
+
+/* Guessed list */
+.guessed-list {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.guessed-list h3 {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.guessed-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.guessed-item {
+  background: rgba(255, 203, 5, 0.1);
+  border: 1px solid rgba(255, 203, 5, 0.3);
+  color: #ffcb05;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  animation: fadeIn 0.2s ease-in;
 }
